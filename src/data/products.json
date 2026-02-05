@@ -1,0 +1,20 @@
+
+
+[
+
+ {
+    "id": 2,
+    "title": "Licensed Soft Bike",
+    "description": "bicicleta de ciudad",
+    "code": "l-713",
+    "price": 735,
+    "status": false,
+    "stock": 28,
+    "category": "Sports",
+    "thumbnails": [
+      "http://placeimg.com/640/480",
+      "http://placeimg.com/640/480"
+    ]
+  }
+
+]
