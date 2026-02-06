@@ -3,7 +3,6 @@
  * 
  */
 
-
 import { Router } from "express";
 import productRouter from "./products.router.js";
 
