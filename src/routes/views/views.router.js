@@ -10,12 +10,12 @@ const productManager = new ProductManager(productPath);
 router.get("/home", async (req, res) => {
   try {
     const products = await productManager.getProducts();
+    const available = products.filter(p => p.status === true);
 
-    // Importante: le pasas un objeto con variables a la vista
     return res.render("home", {
       title: "Home - Productos",
-      products,
-      hasProducts: products.length > 0,
+      products: available,
+      hasProducts: available.length > 0,
     });
   } catch (error) {
     return res.status(500).send("Error cargando productos: " + error.message);
@@ -25,12 +25,13 @@ router.get("/home", async (req, res) => {
 router.get("/realtimeproducts", async (req, res) => {
   try {
     const products = await productManager.getProducts();
-    return res.render("realTimeProducts", { products });
+    return res.render("realTimeProducts", { 
+      title: "Productos en Tiempo Real",
+      products 
+    });
   } catch (error) {
     return res.status(500).send("Error cargando productos: " + error.message);
   }
 });
-
-router.get("/vista", (req, res) => res.render("vista"));
 
 export default router;

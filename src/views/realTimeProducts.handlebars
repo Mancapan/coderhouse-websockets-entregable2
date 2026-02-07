@@ -1,9 +1,71 @@
-<script src="/socket.io/socket.io.js"></script>
-<script>
-  const socket = io();
+<main>
+  <h1>Productos en Tiempo Real</h1>
 
-  socket.on("productsUpdated", (products) => {
-    console.log("Productos actualizados:", products);
-    // aquí tú vuelves a pintar el DOM
-  });
-</script>
+  <div class="nav-links">
+    <a href="/home" class="btn-nav">Volver al inicio(home.handlebars)</a>
+  </div>
+
+  <!-- Formulario para agregar productos -->
+  <div class="add-product-form">
+    <h2>Agregar Nuevo Producto</h2>
+    <form id="productForm">
+      <div class="form-row">
+        <input type="text" id="title" placeholder="Nombre del producto" required>
+        <input type="number" id="price" placeholder="Precio" step="0.01" required>
+      </div>
+      <div class="form-row">
+        <input type="number" id="stock" placeholder="Stock" required>
+        <input type="text" id="category" placeholder="Categoría" required>
+      </div>
+      <div class="form-row">
+        <input type="text" id="code" placeholder="Código único" required>
+        <textarea id="description" placeholder="Descripción (opcional)" rows="2"></textarea>
+      </div>
+      <button type="submit" class="btn-add">
+        ➕ Agregar Producto
+      </button>
+    </form>
+  </div>
+
+  <!-- Lista de productos en tiempo real -->
+  <div id="productList">
+    <ul id="products">
+      {{#each products}}
+        {{#if this.status}}
+          <li data-id="{{this.id}}">
+            <strong>{{this.title}}</strong>
+
+            <div class="product-meta-row">
+              <span class="product-meta price">${{this.price}}</span>
+              <span class="product-meta stock">Stock: {{this.stock}}</span>
+              <span class="product-meta">{{this.category}}</span>
+            </div>
+
+            <div class="product-info">
+              <span class="product-meta">Código: {{this.code}}</span>
+              <span class="product-meta">ID: {{this.id}}</span>
+            </div>
+
+            {{#if this.description}}
+              <div class="product-description">
+                {{this.description}}
+              </div>
+            {{/if}}
+
+            <button class="btn-delete" onclick="deleteProduct('{{this.id}}')">
+              🗑️ Eliminar
+            </button>
+          </li>
+        {{/if}}
+      {{/each}}
+    </ul>
+
+    {{#unless products.length}}
+      <p id="emptyMessage">No hay productos cargados.</p>
+    {{/unless}}
+  </div>
+</main>
+
+<!-- Socket.IO Client -->
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>

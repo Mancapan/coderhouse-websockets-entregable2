@@ -8,8 +8,22 @@
     "description": "bicicleta de ciudad, menos para valpo.. puro cerro la wea!",
     "code": "l-713",
     "price": 735,
-    "status": false,
+    "status": true,
     "stock": 28,
+    "category": "Sports",
+    "thumbnails": [
+        "https://picsum.photos/640/480?random=1",
+    "https://picsum.photos/640/480?random=2"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Patineta",
+    "description": "Patineta pulenta de viña",
+    "code": "1-231",
+    "price": 254,
+    "status": true,
+    "stock": 164,
     "category": "Sports",
     "thumbnails": [
       "http://placeimg.com/640/480",

@@ -1,16 +1,38 @@
-<h1>{{title}}</h1>
+<main>
+  <h1>{{title}}</h1>
 
-{{#if hasProducts}}
-  <ul>
-    {{#each products}}
-      <li>
-        <strong>{{this.title}}</strong> —
-        ${{this.price}} —
-        Stock: {{this.stock}} —
-        Categoría: {{this.category}}
-      </li>
-    {{/each}}
-  </ul>
-{{else}}
-  <p>No hay productos cargados.</p>
-{{/if}}
+  <div class="nav-links">
+    <a href="/realtimeproducts" class="btn-nav">Ver productos en tiempo real(realtimeproducts.handlebars)</a>
+  </div>
+
+  {{#if hasProducts}}
+    <ul>
+      {{#each products}}
+        {{#if this.status}}
+          <li data-id="{{this.id}}">
+            <strong>{{this.title}}</strong>
+
+            <div class="product-meta-row">
+              <span class="product-meta price">${{this.price}}</span>
+              <span class="product-meta stock">Stock: {{this.stock}}</span>
+              <span class="product-meta">{{this.category}}</span>
+            </div>
+
+            <div class="product-info">
+              <span class="product-meta">Código: {{this.code}}</span>
+              <span class="product-meta">ID: {{this.id}}</span>
+            </div>
+
+            {{#if this.description}}
+              <div class="product-description">
+                {{this.description}}
+              </div>
+            {{/if}}
+          </li>
+        {{/if}}
+      {{/each}}
+    </ul>
+  {{else}}
+    <p id="emptyMessage">No hay productos cargados.</p>
+  {{/if}}
+</main>
