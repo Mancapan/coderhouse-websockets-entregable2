@@ -1,34 +1,41 @@
-
-
 [
-
- {
+  {
     "id": 2,
     "title": "Licensed Soft Bike",
     "description": "bicicleta de ciudad, menos para valpo.. puro cerro la wea!",
     "code": "l-713",
     "price": 735,
     "status": true,
-    "stock": 28,
+    "stock": 22,
     "category": "Sports",
     "thumbnails": [
-        "https://picsum.photos/640/480?random=1",
-    "https://picsum.photos/640/480?random=2"
+      "https://picsum.photos/640/480?random=1",
+      "https://picsum.photos/640/480?random=2"
     ]
   },
   {
-    "id": 4,
-    "title": "Patineta",
-    "description": "Patineta pulenta de viña",
-    "code": "1-231",
-    "price": 254,
+    "id": 5,
+    "title": "Motocicleta",
+    "description": "Motocicleta enduro",
+    "code": "51-2312",
+    "price": 1000,
     "status": true,
-    "stock": 164,
-    "category": "Sports",
+    "stock": 8,
+    "category": "EXTREME SPORTS",
     "thumbnails": [
       "http://placeimg.com/640/480",
       "http://placeimg.com/640/480"
     ]
+  },
+  {
+    "id": 6,
+    "title": "teclado inhalambrico",
+    "description": "teclado ergonómico",
+    "code": "tec-321",
+    "price": 10000,
+    "status": true,
+    "stock": 4,
+    "category": "computación",
+    "thumbnails": []
   }
-
 ]

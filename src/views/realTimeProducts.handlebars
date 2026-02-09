@@ -10,16 +10,16 @@
     <h2>Agregar Nuevo Producto</h2>
     <form id="productForm">
       <div class="form-row">
-        <input type="text" id="title" placeholder="Nombre del producto" required>
-        <input type="number" id="price" placeholder="Precio" step="0.01" required>
+        <input type="text" id="title" placeholder="Nombre del producto">
+        <input type="number" id="price" placeholder="Precio" step="0.01">
       </div>
       <div class="form-row">
-        <input type="number" id="stock" placeholder="Stock" required>
-        <input type="text" id="category" placeholder="Categoría" required>
+        <input type="number" id="stock" placeholder="Stock" >
+        <input type="text" id="category" placeholder="Categoría" >
       </div>
       <div class="form-row">
-        <input type="text" id="code" placeholder="Código único" required>
-        <textarea id="description" placeholder="Descripción (opcional)" rows="2"></textarea>
+        <input type="text" id="code" placeholder="Código único">
+        <textarea id="description" placeholder="Descripción del producto" rows="2"></textarea>
       </div>
       <button type="submit" class="btn-add">
         ➕ Agregar Producto
@@ -27,7 +27,8 @@
     </form>
   </div>
 
-  <!-- Lista de productos en tiempo real -->
+
+  <!-- Lista de productos en tiempo real almadenados en src/data/products -->
   <div id="productList">
     <ul id="products">
       {{#each products}}
@@ -40,7 +41,6 @@
               <span class="product-meta stock">Stock: {{this.stock}}</span>
               <span class="product-meta">{{this.category}}</span>
             </div>
-
             <div class="product-info">
               <span class="product-meta">Código: {{this.code}}</span>
               <span class="product-meta">ID: {{this.id}}</span>
@@ -51,10 +51,6 @@
                 {{this.description}}
               </div>
             {{/if}}
-
-            <button class="btn-delete" onclick="deleteProduct('{{this.id}}')">
-              🗑️ Eliminar
-            </button>
           </li>
         {{/if}}
       {{/each}}
@@ -66,6 +62,7 @@
   </div>
 </main>
 
-<!-- Socket.IO Client -->
+<!-- SweetAlert2 (CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="/js/index.js"></script>
