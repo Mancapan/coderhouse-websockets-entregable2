@@ -1,25 +1,32 @@
-
 /* ======================================================
-   ESTILO CORPORATIVO – SOBRIO / MODERNO / EMPRESARIAL
+   VARIABLES GLOBALES (PALETA DE COLORES DEL SISTEMA)
+   Se usan en todo el sitio para mantener coherencia visual
    ====================================================== */
-
 :root {
-  --color-bg: #f5f7fa;
-  --color-surface: #ffffff;
-  --color-border: #dfe3e8;
-  --color-text: #1f2933;
-  --color-muted: #6b7280;
-  --color-primary: #1f3a8a;
-  --color-success: #0f766e;
-  --color-price: #dc2626;
+  --color-bg: #f5f7fa;         /* Fondo general de la página */
+  --color-surface: #ffffff;   /* Fondo de tarjetas / contenedores */
+  --color-border: #dfe3e8;    /* Bordes suaves */
+  --color-text: #1f2933;      /* Texto principal */
+  --color-muted: #6b7280;     /* Texto secundario */
+  --color-primary: #1f3a8a;   /* Color institucional (títulos / hover) */
+  --color-success: #0f766e;   /* Estados positivos (stock) */
+  --color-price: #dc2626;     /* Precio destacado */
 }
 
+/* ======================================================
+   RESET GENERAL
+   Normaliza márgenes y box-model en todos los elementos
+   ====================================================== */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* ======================================================
+   ESTILOS BASE DEL DOCUMENTO
+   Aplica a todo el body del HTML
+   ====================================================== */
 body {
   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background-color: var(--color-bg);
@@ -28,6 +35,10 @@ body {
   padding: 20px;
 }
 
+/* ======================================================
+   CONTENEDOR PRINCIPAL <main>
+   Envuelve todo el contenido renderizado por Handlebars
+   ====================================================== */
 main {
   max-width: 1200px;
   margin: 0 auto;
@@ -38,7 +49,10 @@ main {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* Título */
+/* ======================================================
+   TÍTULO PRINCIPAL (h1)
+   Usado en vistas como realtimeproducts y home
+   ====================================================== */
 h1 {
   font-size: 2rem;
   margin-bottom: 24px;
@@ -48,7 +62,10 @@ h1 {
   font-weight: 600;
 }
 
-/* Texto vacío */
+/* ======================================================
+   TEXTO INFORMATIVO / MENSAJES VACÍOS
+   Ej: "No hay productos cargados"
+   ====================================================== */
 p {
   font-size: 1rem;
   color: var(--color-muted);
@@ -57,9 +74,9 @@ p {
 }
 
 /* ======================================================
-   LISTADO EN CARDS
+   LISTA DE PRODUCTOS <ul id="products">
+   Layout en grilla (cards)
    ====================================================== */
-
 ul {
   list-style: none;
   margin-top: 24px;
@@ -69,6 +86,10 @@ ul {
   gap: 20px;
 }
 
+/* ======================================================
+   CARD DE PRODUCTO <li>
+   Cada producto renderizado por renderProducts()
+   ====================================================== */
 li {
   border: 1px solid var(--color-border);
   background: var(--color-surface);
@@ -81,13 +102,20 @@ li {
   gap: 12px;
 }
 
+/* ======================================================
+   EFECTO HOVER DE LA CARD
+   Mejora UX (feedback visual)
+   ====================================================== */
 li:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 16px rgba(16, 24, 40, 0.12);
   border-color: var(--color-primary);
 }
 
-/* Título del producto */
+/* ======================================================
+   TÍTULO DEL PRODUCTO <strong>
+   Nombre principal del producto
+   ====================================================== */
 li strong {
   display: block;
   font-size: 1.25rem;
@@ -97,7 +125,10 @@ li strong {
   line-height: 1.3;
 }
 
-/* Contenedor de metadatos principales */
+/* ======================================================
+   FILA DE METADATOS PRINCIPALES
+   Precio, stock y categoría
+   ====================================================== */
 .product-meta-row {
   display: flex;
   flex-wrap: wrap;
@@ -106,7 +137,10 @@ li strong {
   border-bottom: 1px solid var(--color-border);
 }
 
-/* Metadatos */
+/* ======================================================
+   METADATOS GENERALES
+   Código, categoría, ID, etc.
+   ====================================================== */
 .product-meta {
   display: inline-flex;
   align-items: center;
@@ -115,14 +149,20 @@ li strong {
   line-height: 1.5;
 }
 
-/* Precio destacado */
+/* ======================================================
+   PRECIO DESTACADO
+   Primer elemento dentro de product-meta-row
+   ====================================================== */
 .product-meta:first-of-type {
   font-size: 1.3rem;
   font-weight: 700;
   color: var(--color-price);
 }
 
-/* Stock destacado */
+/* ======================================================
+   STOCK DESTACADO
+   Indicador visual de disponibilidad
+   ====================================================== */
 .stock {
   color: var(--color-success);
   font-weight: 600;
@@ -131,7 +171,10 @@ li strong {
   border-radius: 4px;
 }
 
-/* Bloques de descripción e imágenes */
+/* ======================================================
+   BLOQUES DE TEXTO LARGO
+   Descripción e imágenes
+   ====================================================== */
 li > div.product-meta {
   display: block;
   margin-top: 8px;
@@ -141,54 +184,14 @@ li > div.product-meta {
   line-height: 1.6;
 }
 
-/* URLs de imágenes como enlaces */
+/* Texto técnico / secundario (IDs, códigos largos) */
 li > div.product-meta:last-child {
   font-size: 0.85rem;
   color: var(--color-muted);
   word-break: break-all;
 }
 
-/* Separador visual */
+/* Separador visual superior */
 li > div.product-meta:first-of-type {
   border-top: 1px solid var(--color-border);
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  body {
-    padding: 10px;
-  }
-
-  main {
-    padding: 20px;
-    border-radius: 8px;
-  }
-
-  h1 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-  }
-
-  ul {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  li strong {
-    font-size: 1.1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  main {
-    padding: 16px;
-  }
-
-  h1 {
-    font-size: 1.3rem;
-  }
-
-  .product-meta {
-    font-size: 0.85rem;
-  }
 }

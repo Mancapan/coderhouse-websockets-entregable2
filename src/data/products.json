@@ -6,7 +6,7 @@
     "code": "l-713",
     "price": 735,
     "status": true,
-    "stock": 22,
+    "stock": 24,
     "category": "Sports",
     "thumbnails": [
       "https://picsum.photos/640/480?random=1",
@@ -46,6 +46,17 @@
     "price": 13000,
     "status": true,
     "stock": 45,
+    "category": "computación",
+    "thumbnails": []
+  },
+  {
+    "id": 9,
+    "title": "Notebook ASUS",
+    "description": "notebook ASUS 16 gb ram",
+    "code": "asus-556",
+    "price": 450000,
+    "status": true,
+    "stock": 3,
     "category": "computación",
     "thumbnails": []
   }
