@@ -28,13 +28,24 @@
     ]
   },
   {
-    "id": 6,
-    "title": "teclado inhalambrico",
-    "description": "teclado ergonómico",
-    "code": "tec-321",
-    "price": 10000,
+    "id": 7,
+    "title": "Mouse inhalambrico",
+    "description": "Mouse ergonómico de la nasa",
+    "code": "mou-456",
+    "price": 12000,
     "status": true,
-    "stock": 4,
+    "stock": 33,
+    "category": "computación",
+    "thumbnails": []
+  },
+  {
+    "id": 8,
+    "title": "teclado inhalambrico",
+    "description": "Teclado de la nasa para comandar la estrella de la muerte.",
+    "code": "tec-456",
+    "price": 13000,
+    "status": true,
+    "stock": 45,
     "category": "computación",
     "thumbnails": []
   }
